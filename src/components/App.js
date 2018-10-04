@@ -7,7 +7,7 @@ import Home from './Home';
 class App extends Component {
   render() {
     return (
-      <Switch basename={'/portfolio'}>
+      <Switch basename={'/'}>
         <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}/>
         <Route path={`${process.env.PUBLIC_URL}/about`} component={Home}/>
         <Route path={`${process.env.PUBLIC_URL}/projects/:name`} component={Home}/>
