@@ -23,12 +23,13 @@ class HomeProjects extends Component{
                 </ul>
 
                 <div className="projects-wrapper">
-                    {this.state.projects ? this.state.projects.projects.map((project) => {
+                    {this.state.projects ? this.state.projects.projects.reverse().map((project) => {
                         if(project.type == this.state.selected || this.state.selected == null){
                             return(
                                 <div key={project.id} className="project-card">
                                     <div className="project-overlay">
                                         <span className="project-name">{project.name}</span>
+                                        <span className={"project-framework " + project.framework}>{project.framework}</span>
                                     </div>
                                     <img src={project.img}/>
                                 </div>

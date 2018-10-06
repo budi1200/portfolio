@@ -217,6 +217,19 @@ body{
   font-weight: bold;
 }
 
+.project-framework{
+  color: white;
+  font-size: 1.3rem;
+}
+
+.ReactJS{
+  color: #61dafb;
+}
+
+.Native{
+  color: #05a5d1;
+}
+
 /* FOOTER */
 .footer-wrapper{
   display: flex;
