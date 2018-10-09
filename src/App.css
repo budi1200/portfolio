@@ -34,6 +34,11 @@ body{
   pointer-events: all;
 }
 
+.header-wrapper li a{
+  color: inherit;
+  text-decoration: none;
+}
+
 .header-wrapper li:before{
   content: "";
   position: absolute;

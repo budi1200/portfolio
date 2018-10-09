@@ -15,7 +15,7 @@ class HomeProjects extends Component{
 
     render(){
         return(
-            <div>
+            <div id="projects">
                 <ul className="projects-filter">
                     <li onClick={() => {this.setState({selected: null})}} className={this.state.selected == null ? "clicked" : null}>All</li>
                     <li onClick={() => this.setState({selected: "web"})} className={this.state.selected == "web" ? "clicked" : null}>Web</li>
