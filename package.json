@@ -4,6 +4,7 @@
   "homepage": "https://budimir.si/",
   "private": true,
   "dependencies": {
+    "firebase": "^5.5.8",
     "particles.js": "^2.0.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",

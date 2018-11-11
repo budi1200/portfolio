@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import {projects} from '../projects';
+import firebase from './firebase';
 
 class HomeProjects extends Component{
 
@@ -8,9 +7,30 @@ class HomeProjects extends Component{
         super(props)
 
         this.state = {
-            projects: projects,
             selected: null
         }
+    }
+    
+    componentDidMount(){
+        firebase.firestore().collection('projects').get()
+            .then((snapshot) => {
+                this.setState({
+                    snapshot: snapshot
+                }, () => this.intoArray())
+            })
+            .catch((err) => {
+                console.log("Error", err);
+            })
+    }
+
+    intoArray = () => {
+        var arr = [];
+        this.state.snapshot.forEach((project) => {
+            arr.push(project.data());
+        })
+        this.setState({
+            projects: arr
+        })
     }
 
     render(){
@@ -23,7 +43,7 @@ class HomeProjects extends Component{
                 </ul>
 
                 <div className="projects-wrapper">
-                    {this.state.projects ? this.state.projects.projects.reverse().map((project) => {
+                    {this.state.projects ? this.state.projects.reverse().map((project) => {
                         if(project.type == this.state.selected || this.state.selected == null){
                             return(
                                 <div key={project.id} className="project-card">
