@@ -15,8 +15,16 @@ class FirstScreen extends Component{
     render(){
 
         return(
-            <div id="FirstScreen-wrapper" style={{height: this.state.height, background: "#779ecb"}} className="FirstScreen-wrapper">
-                <Particles width={this.state.width} height={this.state.height} params={
+            <div className="FirstScreen-outer">
+                <div className="FirstScreen-corner"></div>
+
+                <div className="FirstScreen-text-wrapper">
+                    <span className="FirstScreen-text">Alen Budimir</span>
+                    <span className="FirstScreen-text2">Developer</span>
+                </div>
+                
+                <div id="FirstScreen-wrapper" style={{height: this.state.height, background: "#779ecb"}} className="FirstScreen-wrapper">
+                    <Particles width={this.state.width} height={this.state.height} params={
                     {
   "particles": {
     "number": {
@@ -122,10 +130,7 @@ class FirstScreen extends Component{
     }
   },
   "retina_detect": true
-}}/>
-                <div className="FirstScreen-text-wrapper">
-                    <span className="FirstScreen-text">Alen Budimir</span>
-                    <span className="FirstScreen-text2">Developer</span>
+}}/>    
                 </div>
             </div>
         );
