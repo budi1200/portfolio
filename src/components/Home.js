@@ -14,18 +14,31 @@ class Home extends Component{
         super(props)
 
         this.state = {
+            isVisible: false
+        }
+    }
+
+    lightboxToggle = (state) => {
+        if(state == "open"){
+            this.setState({
+                isVisible: true
+            });
+        }else{
+            this.setState({
+                isVisible: false
+            })
         }
     }
 
     render(){
         return(
-            <div>
+            <div style={{overflow: this.state.isVisible ? "hidden" : "inherit"}}>
                 <Header/>
                 
                 <main>
                     <FirstScreen/>
 
-                    <HomeProjects/>
+                    <HomeProjects lightboxToggle={this.lightboxToggle}/>
 
 
                 </main>

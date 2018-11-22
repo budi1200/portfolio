@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './firebase';
+import Lightbox from './Lightbox';
 
 class HomeProjects extends Component{
 
@@ -7,7 +8,8 @@ class HomeProjects extends Component{
         super(props)
 
         this.state = {
-            selected: null
+            selected: null,
+            isVisible: false,
         }
     }
     
@@ -29,8 +31,29 @@ class HomeProjects extends Component{
             arr.push(project.data());
         })
         this.setState({
-            projects: arr
+            projects: arr.reverse()
         })
+    }
+
+    lightbox = (action, index) => {
+        switch(action){
+            case "open":
+                this.setState({
+                    isVisible: true,
+                    selectedCard: this.state.projects[index]
+                })
+                document.body.style.overflow = "hidden";
+                console.log(index);
+                break;
+            case "close":
+                this.props.lightboxToggle("close");
+                this.setState({
+                    isVisible: false,
+                    selectedCard: ''
+                })
+                document.body.style.overflow = "inherit";
+                break;
+        }
     }
 
     render(){
@@ -43,10 +66,10 @@ class HomeProjects extends Component{
                 </ul>
 
                 <div className="projects-wrapper">
-                    {this.state.projects ? this.state.projects.reverse().map((project) => {
+                    {this.state.projects ? this.state.projects.map((project, index) => {
                         if(project.type == this.state.selected || this.state.selected == null){
                             return(
-                                <div key={project.id} className="project-card">
+                                <div key={project.id} className="project-card" onClick={() => this.lightbox("open", index)}>
                                     <div className="project-overlay">
                                         <span className="project-name">{project.name}</span>
                                         <span className={"project-framework " + project.framework}>{project.framework}</span>
@@ -58,6 +81,7 @@ class HomeProjects extends Component{
                     })
                     : null}
                 </div>
+                <Lightbox isVisible={this.state.isVisible} lightbox={this.lightbox} data={this.state.selectedCard}/>
             </div>
         );
     }
