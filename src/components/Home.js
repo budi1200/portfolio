@@ -1,52 +1,21 @@
 import React, { Component } from 'react';
-
-// Custom Components
 import Header from './Header';
-import Footer from './Footer';
-import FirstScreen from './FirstScreen';
+import HomeStart from './HomeStart';
 import HomeProjects from './HomeProjects';
+import Footer from './Footer';
 
+export default class Home extends Component{
+	render(){
+		return(
+			<React.Fragment>
+				<Header active='portfolio'/>
 
+				<HomeStart/>
 
-class Home extends Component{
+				<HomeProjects/>
 
-    constructor(props){
-        super(props)
-
-        this.state = {
-            isVisible: false
-        }
-    }
-
-    lightboxToggle = (state) => {
-        if(state == "open"){
-            this.setState({
-                isVisible: true
-            });
-        }else{
-            this.setState({
-                isVisible: false
-            })
-        }
-    }
-
-    render(){
-        return(
-            <div style={{overflow: this.state.isVisible ? "hidden" : "inherit"}}>
-                <Header/>
-                
-                <main>
-                    <FirstScreen/>
-
-                    <HomeProjects lightboxToggle={this.lightboxToggle}/>
-
-
-                </main>
-
-                <Footer/>
-            </div>
-        );
-    }
+				<Footer/>
+			</React.Fragment>
+		);
+	}
 }
-
-export default Home;

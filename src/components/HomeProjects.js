@@ -1,90 +1,57 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import firebase from './firebase';
-import Lightbox from './Lightbox';
 
-class HomeProjects extends Component{
+export default class HomeProjects extends Component{
 
-    constructor(props){
-        super(props)
+	constructor(props){
+		super(props);
 
-        this.state = {
-            selected: null,
-            isVisible: false,
-        }
-    }
-    
-    componentDidMount(){
-        firebase.firestore().collection('projects').get()
-            .then((snapshot) => {
-                this.setState({
-                    snapshot: snapshot
-                }, () => this.intoArray())
-            })
-            .catch((err) => {
-                console.log("Error", err);
-            })
-    }
+		this.state = ({
+			selected: null
+		})
+	}
 
-    intoArray = () => {
-        var arr = [];
-        this.state.snapshot.forEach((project) => {
-            arr.push(project.data());
-        })
-        this.setState({
-            projects: arr.reverse()
-        })
-    }
+	componentDidMount(){
+		firebase.firestore().collection('projects').get()
+			.then((snapshot) => {
+				this.setState({
+					snapshot: snapshot
+				}, () => this.intoArray())
+			})
+			.catch((err) => {
+				console.log('Error', err);
+			})
+	}
 
-    lightbox = (action, index) => {
-        switch(action){
-            case "open":
-                this.setState({
-                    isVisible: true,
-                    selectedCard: this.state.projects[index]
-                })
-                document.body.style.overflow = "hidden";
-                console.log(index);
-                break;
-            case "close":
-                this.props.lightboxToggle("close");
-                this.setState({
-                    isVisible: false,
-                    selectedCard: ''
-                })
-                document.body.style.overflow = "inherit";
-                break;
-        }
-    }
+	intoArray = () => {
+		var arr = [];
+		this.state.snapshot.forEach((project) => {
+			arr.push(project.data());
+		})
+		this.setState({
+			projects: arr.reverse()
+		})
+	}
 
-    render(){
-        return(
-            <div id="projects">
-                <ul className="projects-filter">
-                    <li onClick={() => {this.setState({selected: null})}} className={this.state.selected == null ? "clicked" : null}>All</li>
-                    <li onClick={() => this.setState({selected: "web"})} className={this.state.selected == "web" ? "clicked" : null}>Web</li>
-                    <li onClick={() => this.setState({selected: "backend"})} className={this.state.selected == "backend" ? "clicked" : null}>Backend</li>
-                </ul>
-
-                <div className="projects-wrapper">
-                    {this.state.projects ? this.state.projects.map((project, index) => {
-                        if(project.type == this.state.selected || this.state.selected == null){
-                            return(
-                                <div key={project.id} className="project-card" onClick={() => this.lightbox("open", index)}>
-                                    <div className="project-overlay">
-                                        <span className="project-name">{project.name}</span>
-                                        <span className={"project-framework " + project.framework}>{project.framework}</span>
-                                    </div>
-                                    <img src={project.img}/>
-                                </div>
-                            );
-                        }
-                    })
-                    : null}
-                </div>
-                <Lightbox isVisible={this.state.isVisible} lightbox={this.lightbox} data={this.state.selectedCard}/>
-            </div>
-        );
-    }
+	render(){
+		return(
+			<div className='home-projects container'>
+				<h3 className='section-header'>Latest Work</h3>
+				
+				<div className='projects-list-wrapper'>
+					{this.state.projects ? this.state.projects.map((project, index) => {
+						return(
+							<div key={project.id} className='project-card'>
+								<Link to='/'>
+									<img src={project.img}/>
+								</Link>
+							</div>
+						)
+					}) : null}
+				</div>
+			</div>
+		);
+	}
 }
-
-export default HomeProjects;
