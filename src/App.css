@@ -41,6 +41,7 @@ body{
 	cursor: pointer;
 	padding: 20px;
 	text-decoration: none;
+	outline: none;
 }
 
 .header-button:hover{
@@ -130,7 +131,9 @@ body{
 }
 
 .project-card a{
+	position: relative;
 	display: inline-block;
+	outline: none;
 }
 
 .project-card img{
@@ -142,7 +145,28 @@ body{
 }
 
 .project-card img:hover{
-	opacity: 0.69;
+	/*opacity: 0.69;*/
+}
+
+.project-card-overlay{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	background: rgba(0,0,0,.65);
+	transition: opacity 200ms ease;
+	border-radius: 3px;
+	height: 225px;
+	color: var(--primary-color);
+	font-size: 18px;
+	font-family: Lato, sans-serif;
+}
+
+.project-card-overlay:hover{
+	opacity: .95;
 }
 
 /* FOOTER */

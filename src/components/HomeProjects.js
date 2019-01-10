@@ -44,7 +44,10 @@ export default class HomeProjects extends Component{
 					{this.state.projects ? this.state.projects.map((project, index) => {
 						return(
 							<div key={project.id} className='project-card'>
-								<Link to='/'>
+								<Link to={`/projects/${project.category}/${project.name}`}>
+									<div className='project-card-overlay'>
+										<span>{project.friendly_name}</span>
+									</div>
 									<img src={project.img}/>
 								</Link>
 							</div>
