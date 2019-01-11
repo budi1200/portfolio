@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Particles from 'react-particles-js';
 
 import Header from './Header';
 import Footer from './Footer';
+
+import particleConfig from '../particle-config.json';
 
 export default class Contact extends Component{
 	render(){
@@ -16,6 +19,9 @@ export default class Contact extends Component{
 							Get in touch! Lets make <br/> something together.
 						</div>
 					</div>
+				</div>
+				<div id="top" style={{'minHeight': 450, 'height': 450}} className="home-start-lines">
+                    <Particles width='100%' height={450} params={particleConfig}/>    
 				</div>
 
 				<div className='container'>

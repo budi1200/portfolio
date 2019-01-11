@@ -59,7 +59,7 @@ body{
 
 .home-start-wrapper{
 	/*background-image: linear-gradient(180deg, rgba(0, 0, 0, .57), #222), url("https://uploads-ssl.webflow.com/5c2f18a13ded384fbf94e329/5c2f18a13ded38283a94e34b_fe4a5cbf.jpg");*/
-	background-image: linear-gradient(180deg, rgba(0, 0, 0, .57), #222), url("/assets/img/transparent.png");
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, .50), #222), url("/assets/img/transparent.png");
 	min-height: 540px;
 	background-position: 0px 0px, 38% 50%;
 	background-size: auto, cover;
@@ -91,7 +91,7 @@ body{
 	left: 0;
 	min-height: 540px;
 	width: 100%;
-	background-color: #003249;
+	background-color: #00202f;
 	z-index: -1;
 }
 

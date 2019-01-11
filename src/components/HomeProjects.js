@@ -41,7 +41,7 @@ export default class HomeProjects extends Component{
 				<h3 className='section-header'>Latest Work</h3>
 				
 				<div className='projects-list-wrapper'>
-					{this.state.projects ? this.state.projects.map((project, index) => {
+					{this.state.projects ? this.state.projects.map((project) => {
 						return(
 							<div key={project.id} className='project-card'>
 								<Link to={`/projects/${project.category}/${project.name}`}>
