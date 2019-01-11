@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from './Header';
+import Footer from './Footer';
 
 export default class Contact extends Component{
 	render(){
@@ -21,18 +22,20 @@ export default class Contact extends Component{
 					<div className='contact-form-wrapper'>
 						<form className='contact-form'>
 							<label>Name</label>
-							<input type='text' placeholder='Enter your name'/>
+							<input type='text' placeholder='Enter your name' className='contact-form-input'/>
 
 							<label>Email Address</label>
-							<input type='email' placeholder='Enter your email address'/>
+							<input type='email' placeholder='Enter your email address' className='contact-form-input'/>
 
 							<label>Message</label>
-							<textarea placeholder='Enter your message'></textarea>
-							<br/>
-							<button type="submit" className='home-start-button'>Submit</button>
+							<textarea placeholder='Enter your message' className='contact-form-input'></textarea>
+
+							<button type="submit" className='btn btn-submit'>Submit</button>
 						</form>
 					</div>
 				</div>
+
+				<Footer/>
 
 			</React.Fragment>
 		);
