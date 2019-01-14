@@ -1,3 +1,17 @@
+@font-face {
+	font-family: 'Lato2';
+	src:	url('/assets/fonts/Lato-Light.woff2') format('woff2'),
+			url('/assets/fonts/Lato-Light.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Lato2';
+	src:	url('/assets/fonts/Lato-Bold.woff2') format('woff2'),
+			url('/assets/fonts/Lato-Bold.woff') format('woff');
+	font-weight: 700;
+}
+
+
 :root{
 	--primary-color: #00b0ff;
 }
@@ -14,6 +28,28 @@ body{
 	max-width: 940px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.heading{
+	font-family: Lato2, sans-serif;
+	margin-bottom: 1px;
+	color: #fff;
+	font-size: 48px;
+	line-height: 53px;
+	margin-top: 0;
+	font-weight: normal;
+}
+
+.category-heading{
+	margin-top: 0px;
+	margin-bottom: 12px;
+	font-family: Lato2, sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 18px;
+	color: var(--primary-color);
+	text-transform: uppercase;
+	text-decoration: none;
 }
 
 .header-wrapper{
@@ -37,12 +73,12 @@ body{
 .header-button{
 	display: inline-block;
 	transition: color 200ms ease;
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 	font-size: 11px;
 	line-height: 17px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	color: #999;
+	color: white;
 	cursor: pointer;
 	padding: 20px;
 	text-decoration: none;
@@ -50,7 +86,7 @@ body{
 }
 
 .header-button:hover{
-	color: #fff;
+	color: #999;
 }
 
 .header-button-active{
@@ -59,7 +95,7 @@ body{
 
 .home-start-wrapper{
 	/*background-image: linear-gradient(180deg, rgba(0, 0, 0, .57), #222), url("https://uploads-ssl.webflow.com/5c2f18a13ded384fbf94e329/5c2f18a13ded38283a94e34b_fe4a5cbf.jpg");*/
-	background-image: linear-gradient(180deg, rgba(0, 0, 0, .50), #222), url("/assets/img/transparent.png");
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, .60), #222), url("/assets/img/transparent.png");
 	min-height: 540px;
 	background-position: 0px 0px, 38% 50%;
 	background-size: auto, cover;
@@ -76,7 +112,7 @@ body{
 }
 
 .home-start-text{
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 	margin-bottom: 27px;
 	color: #fff;
 	font-size: 48px;
@@ -114,7 +150,7 @@ body{
 	border-radius: 3px;
 	background-color: transparent;
 	transition: all 200ms ease;
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 	color: var(--primary-color);
 	font-size: 13px;
 	line-height: 19px;
@@ -137,7 +173,7 @@ body{
 
 
 .section-header{
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 	line-height: 30px;
 	margin-top: 0px;
 	margin-bottom: 32px;
@@ -189,11 +225,19 @@ body{
 	height: 225px;
 	color: var(--primary-color);
 	font-size: 18px;
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 }
 
 .project-card-overlay:hover{
 	opacity: .95;
+}
+
+/* PROJECT DETAILS PAGE */
+.project-header-image{
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 
@@ -212,7 +256,7 @@ body{
 .contact-form label{
 	display: block;
 	margin-bottom: 5px;
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 	font-size: 12px;
 	font-weight: 300;
 	letter-spacing: 1px;
@@ -253,7 +297,7 @@ body{
 }
 
 .footer{
-	font-family: Lato, sans-serif;
+	font-family: Lato2, sans-serif;
 	color: white;
 	font-size: 14px;
 	display: flex;
