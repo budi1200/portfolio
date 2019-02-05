@@ -4,7 +4,10 @@ import HomeStart from "./HomeStart";
 import HomeProjects from "./HomeProjects";
 import Footer from "./Footer";
 
-export default class Home extends Component {
+import scriptLoader from 'react-async-script-loader';
+
+class Home extends Component {
+
 	render() {
 			return (
 				<div className="arlo_tm_wrapper_all">
@@ -15,20 +18,20 @@ export default class Home extends Component {
 						<span className="close"><a href="#" /></span>
 					</div>
 					{/* PRELOADER */}
-					<div className="arlo_tm_preloader loaded">
+					<div className="arlo_tm_preloader">
 						<div className="spinner_wrap">
 							<div className="spinner" />
 						</div>
 					</div>
 					{/* /PRELOADER */}
 					{/* MOBILE MENU */}
-					<div className="arlo_tm_mobile_header_wrap">
+					<div ref='mobile_menu_wrap' className="arlo_tm_mobile_header_wrap">
 						<div className="main_wrap">
 							<div className="logo">
 								<img src="/assets/img/logo/mobile_logo.png"/>
 							</div>
 							<div className="arlo_tm_trigger">
-								<div className="hamburger hamburger--collapse-r">
+								<div ref='hamburger' className="hamburger hamburger--collapse-r">
 									<div className="hamburger-box">
 										<div className="hamburger-inner" />
 									</div>
@@ -55,7 +58,7 @@ export default class Home extends Component {
 						<div className="arlo_tm_leftpart_wrap">
 							<div className="leftpart_inner">
 								<div className="logo_wrap">
-									<a href="#"><img src="/assets/img/logo/desktop-logo.png"/></a>
+									<a href="#"><img src="/assets/img/logo.svg"/></a>
 								</div>
 								<div className="menu_list_wrap">
 									<ul className="anchor_nav">
@@ -92,10 +95,10 @@ export default class Home extends Component {
 											<div className="particle_overlay" />
 											<div className="inner_content">
 												<div className="image_wrap">
-													<img src="/assets/img/hero/new.jpg"/>
+													<img src="/assets/img/newprofileimg.png"/>
 												</div>
 												<div className="name_holder">
-													<h3>Alan <span>Michaelis</span></h3>
+													<h3>Alen <span>Budimir</span></h3>
 												</div>
 												<div className="text_typing">
 													<p>I'm a <span className="arlo_tm_animation_text_word" /></p>
@@ -131,42 +134,42 @@ export default class Home extends Component {
 													</div>
 													<div className="rightbox">
 														<div className="arlo_tm_mini_title_holder">
-															<h4>I'm Alan Michaelis and <span className="arlo_tm_animation_text_word" /></h4>
+															<h4>I'm Alen Budimir and <span className="arlo_tm_animation_text_word" /></h4>
 														</div>
 														<div className="definition">
-															<p>Hi! My name is <strong>Alan Michaelis</strong>. I am a Web Developer, and I'm very passionate and dedicated to my work. With 20 years experience as a professional Web developer, I have acquired the skills and 				knowledge necessary to make your project a success. I enjoy every step of the design process, from discussion and collaboration to concept and execution, but I find the most satisfaction in seeing the finished 				product do everything for you that it was created to do.</p>
+															<p>Hello! My name is <strong>Alen Budimir</strong>. I am a Web Developer, and I'm very passionate and dedicated to my work.</p>
 														</div>
 														<div className="about_short_contact_wrap">
 															<ul>
 																<li>
-																	<span><label>Birthday:</label> 01.07.1990</span>
+																	<span><label>Birthday:</label> December, 2000</span>
 																</li>
 																<li>
-																	<span><label>Age:</label> 28</span>
+																	<span><label>Age:</label> </span>
 																</li>
 																<li>
-																	<span><label>City:</label> New York, USA</span>
+																	<span><label>Country:</label> Slovenia</span>
 																</li>
 																<li>
-																	<span><label>Interests:</label> Soccer, UFC</span>
+																	<span><label>Interests:</label> Tv series</span>
 																</li>
 																<li>
-																	<span><label>Study:</label> Chicago University</span>
+																	<span><label>Study:</label> Soon</span>
 																</li>
 																<li>
-																	<span><label>Degree:</label> Master</span>
+																	<span><label>Degree:</label> Soon</span>
 																</li>	
 																<li>
-																	<span><label>Website:</label> <a href="#">www.mywebsite.com</a></span>
+																	<span><label>Website:</label> <a href="https://budimir.si/">budimir.si</a></span>
 																</li>
 																<li>
-																	<span><label>Mail:</label> <a href="mailto:example@gmail.com">mymail@gmail.com</a></span>
+																	<span><label>Mail:</label> <a href="mailto:alen.budimir20@gmail.com">alen.budimir20@gmail.com</a></span>
 																</li>
 																<li>
-																	<span><label>Phone:</label> <a href="#">+77 022 177 05 05</a></span>
+																	<span><label>Github:</label> <a href="https://github.com/budi1200">budi1200</a></span>
 																</li>
 																<li>
-																	<span><label>Twitter:</label> <a href="#">@myusername</a></span>
+																	<span><label>LinkedIn:</label> <a href="https://www.linkedin.com/in/alen-budimir/">Alen Budimir</a></span>
 																</li>
 															</ul>
 														</div>
@@ -554,3 +557,11 @@ export default class Home extends Component {
 			);
 	}
 }
+
+export default scriptLoader(
+	[
+		'/assets/js/jquery.js',
+		'/assets/js/plugins.js'
+	],
+	'/assets/js/init.js'
+  )(Home)
