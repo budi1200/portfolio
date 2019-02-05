@@ -139,11 +139,11 @@ class Home extends Component {
 													<div className="leftbox">
 														<div className="about_image_wrap parallax" data-relative-input="true">
 															<div className="image layer" data-depth="0.1">
-																<img src="/assets/img/about/550x640.jpg"/>
-																<div className="inner" data-img-url="/assets/img/about/1.jpg" />
+																<img src="/assets/img/newprofileimg.png"/>
+																<div className="inner" data-img-url="/assets/img/newprofileimg.png" />
 															</div>
 															<div className="border layer" data-depth="0.2">
-																<img src="/assets/img/about/550x640.jpg"/>
+																<img src="/assets/img/newprofileimg.png"/>
 																<div className="inner" />
 															</div>
 														</div>
