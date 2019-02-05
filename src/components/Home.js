@@ -3,10 +3,25 @@ import Header from "./Header";
 import HomeStart from "./HomeStart";
 import HomeProjects from "./HomeProjects";
 import Footer from "./Footer";
+import moment from 'moment';
 
 import scriptLoader from 'react-async-script-loader';
 
 class Home extends Component {
+
+	constructor(props){
+		super(props);
+
+		this.state = {
+			isLoading: true
+		}
+	}
+
+	componentDidMount(){
+		this.setState({
+			isLoading: false
+		})
+	}
 
 	render() {
 			return (
@@ -18,7 +33,7 @@ class Home extends Component {
 						<span className="close"><a href="#" /></span>
 					</div>
 					{/* PRELOADER */}
-					<div className="arlo_tm_preloader">
+					<div className={`arlo_tm_preloader ${this.state.isLoading ? "" : "loaded"}`}>
 						<div className="spinner_wrap">
 							<div className="spinner" />
 						</div>
@@ -52,6 +67,7 @@ class Home extends Component {
 						</div>
 					</div>
 					{/* /MOBILE MENU */}
+
 					{/* CONTENT */}
 					<div className="arlo_tm_content">
 						{/* LEFTPART */}
@@ -66,7 +82,6 @@ class Home extends Component {
 										<li><a href="#about">About</a></li>
 										<li><a href="#services">Services</a></li>
 										<li><a href="#portfolio">Portfolio</a></li>
-										<li><a href="#news">News</a></li>
 										<li><a href="#contact">Contact</a></li>
 									</ul>
 								</div>
@@ -93,7 +108,7 @@ class Home extends Component {
 										<div className="arlo_tm_universal_box_wrap particle jarallax" data-speed="0.1">
 											<div id="particles-js" /> 
 											<div className="particle_overlay" />
-											<div className="inner_content">
+											<div id='header_section' className="inner_content">
 												<div className="image_wrap">
 													<img src="/assets/img/newprofileimg.png"/>
 												</div>
@@ -110,6 +125,7 @@ class Home extends Component {
 										</div>
 									</div>
 								</div>
+
 								{/* ABOUT */}
 								<div className="arlo_tm_section relative" id="about">
 									<div className="arlo_tm_about_wrapper_all">
@@ -145,7 +161,7 @@ class Home extends Component {
 																	<span><label>Birthday:</label> December, 2000</span>
 																</li>
 																<li>
-																	<span><label>Age:</label> </span>
+																	<span><label>Age:</label> {moment().diff('2000-12-01', 'years')}</span>
 																</li>
 																<li>
 																	<span><label>Country:</label> Slovenia</span>
@@ -154,7 +170,7 @@ class Home extends Component {
 																	<span><label>Interests:</label> Tv series</span>
 																</li>
 																<li>
-																	<span><label>Study:</label> Soon</span>
+																	<span><label>Study:</label> ERŠ Velenje</span>
 																</li>
 																<li>
 																	<span><label>Degree:</label> Soon</span>
@@ -234,7 +250,7 @@ class Home extends Component {
 										<div className="container">
 											<div className="arlo_tm_title_holder">
 												<h3>Amazing Services</h3>
-												<span>Meet our amazing services</span>
+												<span>Meet my amazing services</span>
 											</div>
 											<div className="list_wrap">
 												<ul>
@@ -244,7 +260,7 @@ class Home extends Component {
 																<img className="svg" src="/assets/img/svg/camera-diaphragm.svg"/>
 															</div>
 															<div className="title_service">
-																<h3>Photography</h3>
+																<h3>Front-End Development</h3>
 															</div>
 															<div className="text">
 																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
@@ -257,7 +273,7 @@ class Home extends Component {
 																<img className="svg" src="/assets/img/svg/new-tab.svg"/>
 															</div>
 															<div className="title_service">
-																<h3>Web Design</h3>
+																<h3>Back-End Development</h3>
 															</div>
 															<div className="text">
 																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
@@ -397,67 +413,6 @@ class Home extends Component {
 									</div>
 								</div>
 								{/* /PORTFOLIO */}
-								{/* TESTIMONIALS */}
-								<div className="arlo_tm_section" id="testimonials">
-									<div className="arlo_tm_testimonials_wrapper_all">
-										<div className="arlo_tm_universal_box_wrap">
-											<div className="bg_wrap">
-												<div className="overlay_image testimonial jarallax" data-speed={0} />
-												<div className="overlay_color testimonial" />
-											</div>
-											<div className="content testimonial">
-												<div className="arlo_tm_testimonial_wrap">
-													<div className="container">
-														<div className="carousel_wrap">
-															<ul className="owl-carousel">
-																<li className="item">
-																	<div className="inner">
-																		<div className="quotebox_wrap">
-																			<i className="xcon-quote-left" />
-																		</div>
-																		<div className="definitions_wrap">
-																			<p>“Arlo team are easy to work with and helped me make amazing websites in a short amount of time. Thanks guys for works.”</p>
-																		</div>
-																		<div className="name_holder">
-																			<p>Antonio Baraley, CEO Founder</p>
-																		</div>
-																	</div>
-																</li>
-																<li className="item">
-																	<div className="inner">
-																		<div className="quotebox_wrap">
-																			<i className="xcon-quote-left" />
-																		</div>
-																		<div className="definitions_wrap">
-																			<p>“We were looking for a logo with a touch of modernism. Arlo grasped our needs and produced a stunning design.”</p>
-																		</div>
-																		<div className="name_holder">
-																			<p>Calena Gomez, AOC Designer</p>
-																		</div>
-																	</div>
-																</li>
-																<li className="item">
-																	<div className="inner">
-																		<div className="quotebox_wrap">
-																			<i className="xcon-quote-left" />
-																		</div>
-																		<div className="definitions_wrap">
-																			<p>“Awesome to work with Arlo. Good organized, easy to communicate with, responsive with next iterations.”</p>
-																		</div>
-																		<div className="name_holder">
-																			<p>Torren Winston, Photographer.</p>
-																		</div>
-																	</div>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								{/* /TESTIMONIALS */}
 								{/* COUNTERBOX */}
 								<div className="arlo_tm_section">
 									<div className="container">
@@ -465,26 +420,26 @@ class Home extends Component {
 											<ul className="arlo_tm_counter_list arlo_tm_miniboxes">
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={2222} data-speed={3000}>0</span></span></h3>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={30} data-speed={3000}>0</span></span></h3>
 														<span>Projects Completed</span>
 													</div>
 												</li>
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={333} data-speed={3000}>0</span>K</span></h3>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={10} data-speed={3000}>0</span>K</span></h3>
 														<span>Lines of Code</span>
 													</div>
 												</li>
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={8888} data-speed={3000}>0</span></span></h3>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={20} data-speed={3000}>0</span></span></h3>
 														<span>Happy Clients</span>
 													</div>
 												</li>
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={777} data-speed={3000}>0</span>+</span></h3>
-														<span>My Awwwards</span>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={8000} data-speed={3000}>0</span>+</span></h3>
+														<span>Random number</span>
 													</div>
 												</li>
 											</ul>
@@ -509,10 +464,8 @@ class Home extends Component {
 													</div>
 													<div className="short_info_wrap">
 														<ul>
-															<li><p><label>Address:</label><span>123 Qwerty Avenue NYC, USA</span></p></li>
-															<li><p><label>Email:</label><span><a href="mailto:example@gmail.com">example@gmail.com</a></span></p></li>
-															<li><p><label>Phone:</label><span>+77 022 177 05 05</span></p></li>
-															<li><p><label>Website:</label><span><a href="mailto:example@gmail.com">www.yourdomain.com</a></span></p></li>
+															<li><p><label>Email:</label><span><a href="mailto:alen.budimir20@gmail.com">alen.budimir20@gmail.com</a></span></p></li>
+															<li><p><label>Website:</label><span><a href="https://budimir.si/">budimir.si</a></span></p></li>
 														</ul>
 													</div>
 												</div>
