@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Header from "./Header";
-import HomeStart from "./HomeStart";
 import HomeProjects from "./HomeProjects";
-import Footer from "./Footer";
 import moment from 'moment';
+import axios from 'axios';
 
 import scriptLoader from 'react-async-script-loader';
 
@@ -13,7 +11,8 @@ class Home extends Component {
 		super(props);
 
 		this.state = {
-			isLoading: true
+			isLoading: true,
+			didSubmit: false
 		}
 	}
 
@@ -21,6 +20,22 @@ class Home extends Component {
 		this.setState({
 			isLoading: false
 		})
+	}
+
+	handleSubmit = (event) => {
+		event.preventDefault();
+		const data = new FormData(event.target);
+		
+		fetch('https://formspree.io/alen.budimir20@gmail.com', {
+			method: 'POST',
+			body: data,
+		})
+		.then(result => {
+			console.log(result.data);
+			this.setState({
+				didSubmit: true
+			})
+		});
 	}
 
 	render() {
@@ -88,11 +103,10 @@ class Home extends Component {
 								<div className="leftpart_bottom">
 									<div className="social_wrap">
 										<ul>
-											<li><a href="#"><i className="xcon-facebook" /></a></li>
-											<li><a href="#"><i className="xcon-twitter" /></a></li>
-											<li><a href="#"><i className="xcon-linkedin" /></a></li>
-											<li><a href="#"><i className="xcon-instagram" /></a></li>
-											<li><a href="#"><i className="xcon-behance" /></a></li>
+											<li><a href="https://www.facebook.com/alenbudimir20"><i className="xcon-facebook" /></a></li>
+											<li><a href="https://www.linkedin.com/in/alen-budimir/"><i className="xcon-linkedin" /></a></li>
+											<li><a href="https://www.instagram.com/alenbudimir/"><i className="xcon-instagram" /></a></li>
+											<li><a href="https://github.com/budi1200"><img className='github_image' src='/assets/img/social/github_icon.png' height={15} width={15}/></a></li>
 										</ul>
 									</div>
 								</div>
@@ -132,7 +146,7 @@ class Home extends Component {
 										<div className="container">
 											<div className="arlo_tm_title_holder">
 												<h3>About Me</h3>
-												<span>Main informations about me</span>
+												<span>Main information about me</span>
 											</div>
 											<div className="arlo_tm_about_wrap">
 												<div className="author_wrap">
@@ -150,7 +164,7 @@ class Home extends Component {
 													</div>
 													<div className="rightbox">
 														<div className="arlo_tm_mini_title_holder">
-															<h4>I'm Alen Budimir and <span className="arlo_tm_animation_text_word" /></h4>
+															<h4>I'm Alen Budimir</h4>
 														</div>
 														<div className="definition">
 															<p>Hello! My name is <strong>Alen Budimir</strong>. I am a Web Developer, and I'm very passionate and dedicated to my work.</p>
@@ -213,27 +227,28 @@ class Home extends Component {
 											<div className="inner_wrap">
 												<div className="leftbox">
 													<div className="arlo_tm_mini_title_holder">
-														<h4>Some About my Abilities</h4>
+														<h4>Some of my skills</h4>
 													</div>
-													<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum has been the industry. Lorem Ipsum has been the industry's 				standard dummy text since. Lorem Ipsum is simply.</p>
+													<p>I am always looking to improve my current skills and learn new ones. I'm currently mostly interested in learning Python and NodeJS among other things.</p>
+													<p>Check out my Github for more of my skills.</p>
 												</div>
 												<div className="rightbox">
 													<div className="progress_bar_wrap_total">
 														<div className="arlo_tm_progress_wrap" data-size="small" data-round="c" data-strip="off">
-															<div className="arlo_tm_progress" data-value={95} data-color="#000">
-																<span><span className="label">Wordpress - <span className="experience">5 years of experience</span></span><span className="number">95%</span></span>
+															<div className="arlo_tm_progress" data-value={60} data-color="#000">
+																<span><span className="label">Wordpress <span className="experience"></span></span><span className="number">60%</span></span>
 																<div className="arlo_tm_bar_bg"><div className="arlo_tm_bar_wrap"><div className="arlo_tm_bar" /></div></div>
 															</div>
 															<div className="arlo_tm_progress" data-value={85} data-color="#000">
 																<span><span className="label">Css - <span className="experience">3 years of experience</span></span><span className="number">85%</span></span>
 																<div className="arlo_tm_bar_bg"><div className="arlo_tm_bar_wrap"><div className="arlo_tm_bar" /></div></div>
 															</div>
-															<div className="arlo_tm_progress" data-value={75} data-color="#000">
-																<span><span className="label">HTML - <span className="experience">4 years of experience</span></span><span className="number">75%</span></span>
+															<div className="arlo_tm_progress" data-value={60} data-color="#000">
+																<span><span className="label">JavaScript - <span className="experience">1 year of experience</span></span><span className="number">60%</span></span>
 																<div className="arlo_tm_bar_bg"><div className="arlo_tm_bar_wrap"><div className="arlo_tm_bar" /></div></div>
 															</div>
-															<div className="arlo_tm_progress" data-value={90} data-color="#000">
-																<span><span className="label">After Effect - <span className="experience">6 years of experience</span></span><span className="number">90%</span></span>
+															<div className="arlo_tm_progress" data-value={50} data-color="#000">
+																<span><span className="label">Php - <span className="experience">1 year of experience</span></span><span className="number">50%</span></span>
 																<div className="arlo_tm_bar_bg"><div className="arlo_tm_bar_wrap"><div className="arlo_tm_bar" /></div></div>
 															</div>
 														</div>
@@ -250,7 +265,7 @@ class Home extends Component {
 										<div className="container">
 											<div className="arlo_tm_title_holder">
 												<h3>Amazing Services</h3>
-												<span>Meet my amazing services</span>
+												<span>What I offer</span>
 											</div>
 											<div className="list_wrap">
 												<ul>
@@ -260,10 +275,10 @@ class Home extends Component {
 																<img className="svg" src="/assets/img/svg/camera-diaphragm.svg"/>
 															</div>
 															<div className="title_service">
-																<h3>Front-End Development</h3>
+																<h3>Frontend Development</h3>
 															</div>
 															<div className="text">
-																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
+																<p>Frontend development is a process of creation, with the intention of presenting the content on electronic pages ...</p>
 															</div>
 														</div>
 													</li>
@@ -273,59 +288,7 @@ class Home extends Component {
 																<img className="svg" src="/assets/img/svg/new-tab.svg"/>
 															</div>
 															<div className="title_service">
-																<h3>Back-End Development</h3>
-															</div>
-															<div className="text">
-																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div className="inner">
-															<div className="icon">
-																<img className="svg" src="/assets/img/svg/layers.svg"/>
-															</div>
-															<div className="title_service">
-																<h3>Branding</h3>
-															</div>
-															<div className="text">
-																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div className="inner">
-															<div className="icon">
-																<img className="svg" src="/assets/img/svg/share.svg"/>
-															</div>
-															<div className="title_service">
-																<h3>Social Media</h3>
-															</div>
-															<div className="text">
-																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div className="inner">
-															<div className="icon">
-																<img className="svg" src="/assets/img/svg/adobe-illustrator.svg"/>
-															</div>
-															<div className="title_service">
-																<h3>Illustrator</h3>
-															</div>
-															<div className="text">
-																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
-															</div>
-														</div>
-													</li>
-													<li>
-														<div className="inner">
-															<div className="icon">
-																<img className="svg" src="/assets/img/svg/seo-performance-marketing-graphic.svg"/>
-															</div>
-															<div className="title_service">
-																<h3>Marketing</h3>
+																<h3>Backend Development</h3>
 															</div>
 															<div className="text">
 																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
@@ -339,79 +302,7 @@ class Home extends Component {
 								</div>
 								{/* /SERVICES */}
 								{/* PORTFOLIO */}
-								<div className="arlo_tm_section relative" id="portfolio">
-									<div className="arlo_tm_portfolio_wrapper_all">
-										{/* PORTFOLIO FILTER */}
-										<div className="arlo_tm_second_portfolio">
-											<div className="container">
-												<div className="arlo_tm_portfolio_wrap">
-													<div className="arlo_tm_title_holder portfolio">
-														<h3>Creative Works</h3>
-														<span>Check out our latest creative works</span>
-													</div>
-													<div className="arlo_tm_portfolio_titles" />
-													<ul className="arlo_tm_portfolio_filter">
-														<li><a href="#" className="current" data-filter="*">All</a></li>
-														<li><a href="#" data-filter=".design">Design</a></li>
-														<li><a href="#" data-filter=".photography">Photography</a></li>
-														<li><a href="#" data-filter=".development">Development</a></li>
-													</ul>
-													<ul className="arlo_tm_portfolio_list gallery_zoom">
-														<li className="design">
-															<div className="entry arlo_tm_portfolio_animation_wrap" data-title="Aoc Productions" data-category="Design">
-																<a href="portfolio-single.html">
-																	<img src="/assets/img/portfolio/600x600.jpg"/>
-																	<div className="arlo_tm_portfolio_image_main" data-img-url="/assets/img/portfolio/1.jpg" />
-																</a>
-															</div>
-														</li>
-														<li className="photography">
-															<div className="entry arlo_tm_portfolio_animation_wrap" data-title="Ind Hed" data-category="Photography">
-																<a href="portfolio-single-2.html">
-																	<img src="/assets/img/portfolio/600x600.jpg"/>
-																	<div className="arlo_tm_portfolio_image_main" data-img-url="/assets/img/portfolio/2.jpg" />
-																</a>
-															</div>
-														</li>
-														<li className="development">
-															<div className="entry arlo_tm_portfolio_animation_wrap" data-title="Paper Mockup" data-category="Development">
-																<a href="portfolio-single-3.html">
-																	<img src="/assets/img/portfolio/600x600.jpg"/>
-																	<div className="arlo_tm_portfolio_image_main" data-img-url="/assets/img/portfolio/3.jpg" />
-																</a>
-															</div>
-														</li>
-														<li className="photography">
-															<div className="entry arlo_tm_portfolio_animation_wrap" data-title="The Nordic" data-category="Photography">
-																<a href="portfolio-single-4.html">
-																	<img src="/assets/img/portfolio/600x600.jpg"/>
-																	<div className="arlo_tm_portfolio_image_main" data-img-url="/assets/img/portfolio/4.jpg" />
-																</a>
-															</div>
-														</li>
-														<li className="design">
-															<div className="entry arlo_tm_portfolio_animation_wrap" data-title="Creatives Castle" data-category="Design">
-																<a href="portfolio-single-5.html">
-																	<img src="/assets/img/portfolio/600x600.jpg"/>
-																	<div className="arlo_tm_portfolio_image_main" data-img-url="/assets/img/portfolio/5.jpg" />
-																</a>
-															</div>
-														</li>
-														<li className="photography">
-															<div className="entry arlo_tm_portfolio_animation_wrap" data-title="White Bag" data-category="Photography">
-																<a href="portfolio-single-6.html">
-																	<img src="/assets/img/portfolio/600x600.jpg"/>
-																	<div className="arlo_tm_portfolio_image_main" data-img-url="/assets/img/portfolio/6.jpg" />
-																</a>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										{/* /PORTFOLIO FILTER */}
-									</div>
-								</div>
+								<HomeProjects/>
 								{/* /PORTFOLIO */}
 								{/* COUNTERBOX */}
 								<div className="arlo_tm_section">
@@ -472,22 +363,23 @@ class Home extends Component {
 												<div className="rightbox">
 													<div className="arlo_tm_contact_wrap">
 														<div className="main_input_wrap">
-															<form action="/" method="post" className="contact_form" id="contact_form">
-																<div className="returnmessage" data-success="Your message has been received, We will contact you soon." />
-																<div className="empty_notice"><span>Please Fill Required Fields</span></div>
-																<div className="wrap">
-																	<input id="name" type="text" placeholder="Your Name" />
-																</div>
-																<div className="wrap">
-																	<input id="email" type="text" placeholder="Your Email" />
-																</div>
-																<div className="wrap">
-																	<textarea id="message" placeholder="Your Message" defaultValue={""} />
-																</div>
-																<div className="arlo_tm_button">
-																	<a id="send_message" href="#"><span>Send Message</span></a>
-																</div>
-															</form>
+															{!this.state.didSubmit ? 
+																(
+																	<form onSubmit={this.handleSubmit} className="contact_form" id="contact_form">
+																		<div className="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
+																		<div className="empty_notice"><span>Please Fill Required Fields</span></div>
+																		<div className="wrap">
+																			<input ref='email' id="email" type="email" placeholder="Your Email" name='_replyto' />
+																		</div>
+																		<div className="wrap">
+																			<textarea ref='message' id="message" placeholder="Your Message" defaultValue={""} name='name' />
+																		</div>
+																		<div className="arlo_tm_button">
+																			<button className='contact-button' id="send_message"><span>Send Message</span></button>
+																		</div>
+																	</form>
+																) : null
+															}
 														</div>
 													</div>
 												</div>
@@ -495,7 +387,7 @@ class Home extends Component {
 										</div>
 										<div className="arlo_tm_footer_wrap">
 											<div className="container">
-												<p>© Copyright 2019. All Rights are Reserved.</p>
+												<p>© Copyright {moment().format('YYYY')}. All Rights are Reserved.</p>
 											</div>
 										</div>
 									</div>
@@ -517,4 +409,4 @@ export default scriptLoader(
 		'/assets/js/plugins.js'
 	],
 	'/assets/js/init.js'
-  )(Home)
+)(Home)

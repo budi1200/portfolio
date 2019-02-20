@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
   arlo_tm_list_height();
   arlo_tm_portfolio();
   arlo_tm_anchor();
-  arlo_tm_contact_form();
+  //arlo_tm_contact_form();
   arlo_tm_owl_carousel();
   arlo_tm_animate_text();
   arlo_tm_projects();
@@ -261,6 +261,7 @@ function arlo_tm_projects() {
   'use strict';
 
   jQuery('.arlo_tm_portfolio_animation_wrap').each(function() {
+	  console.log("yes");
     jQuery(this)
       .on('mouseenter', function() {
         if (jQuery(this).data('title')) {

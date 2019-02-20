@@ -37,24 +37,47 @@ export default class HomeProjects extends Component{
 
 	render(){
 		return(
-			<div className='home-projects container'>
-				<h3 className='section-header'>Latest Work</h3>
-				
-				<div className='projects-list-wrapper'>
-					{this.state.projects ? this.state.projects.map((project, index) => {
-						return(
-							<div key={project.id} className='project-card'>
-								<Link to={`/projects/${project.category}/${project.name}`}>
-									<div className='project-card-overlay'>
-										<span>{project.friendly_name}</span>
-									</div>
-									<img src={project.img}/>
-								</Link>
+			<div className="arlo_tm_section relative" id="portfolio">
+				<div className="arlo_tm_portfolio_wrapper_all">
+					{/* PORTFOLIO FILTER */}
+					<div className="arlo_tm_second_portfolio">
+						<div className="container">
+							<div className="arlo_tm_portfolio_wrap">
+								<div className="arlo_tm_title_holder portfolio">
+									<h3>Projects</h3>
+									<span>Check out my latest projects</span>
+								</div>
+								<div ref='titles' className="arlo_tm_portfolio_titles">
+									<span ref='cat' className='work__cat'></span>
+								</div>
+								{/*<ul className="arlo_tm_portfolio_filter">
+									<li><a href="#" className="current" data-filter="*">All</a></li>
+									<li><a href="#" data-filter=".design">Frontend</a></li>
+									<li><a href="#" data-filter=".photography">Backend</a></li>
+									<li><a href="#" data-filter=".development">Something</a></li>
+								</ul>*/}
+								<ul className="arlo_tm_portfolio_list gallery_zoom">
+									{this.state.projects ? this.state.projects.map((project, index) => {
+										return(
+											<li key={index} className={project.category}>
+												<div className="entry arlo_tm_portfolio_animation_wrap" data-title={project.friendlyName} data-category={project.category}>
+													<Link to='/'>
+														<img src={project.img}/>
+														<div className="arlo_tm_portfolio_image_main project_title" data-img-url={project.img}>
+															<span>{project.friendlyName}</span>
+														</div>
+													</Link>
+												</div>
+											</li>
+										)
+									}) : null}
+								</ul>
 							</div>
-						)
-					}) : null}
+						</div>
+					</div>
+					{/* /PORTFOLIO FILTER */}
 				</div>
 			</div>
-		);
+		)
 	}
 }

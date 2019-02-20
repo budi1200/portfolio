@@ -12,9 +12,7 @@ class App extends Component {
     return (
       <Switch basename={'/'}>
         <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}/>
-        <Route path={`${process.env.PUBLIC_URL}/skills`} component={Skills}/>
         <Route path={`${process.env.PUBLIC_URL}/projects/:name`} component={Project}/>
-				<Route path={`${process.env.PUBLIC_URL}/contact`} component={Contact}/>
       </Switch>
     );
   }
