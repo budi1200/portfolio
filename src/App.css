@@ -1,258 +1,159 @@
-body{
-  font-family: 'Roboto', sans-serif;
+:root{
+	--def-color: #0d80a3;
 }
 
-.header-wrapper{
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0,0,0,.5);
-  width: 100%;
-  height: 80px;
-  pointer-events: none;
+#header_section{
+	pointer-events: none;
 }
 
-.header-wrapper img{
-  margin-left: 5rem;
+.github_image{
+	margin-top: -5px;
 }
 
-.header-wrapper ul{
-  display: flex;
-  margin-right: 5rem;
-  list-style: none;
+.arlo_tm_portfolio_list li img {
+    object-fit: cover;
+    height: 300px;
 }
 
-.header-wrapper li{
-  position: relative;
-  color: white;
-  margin-left: 25px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  font-size: 1.2rem;
-  pointer-events: all;
+.arlo_tm_portfolio_titles{
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
 }
 
-.header-wrapper li a{
-  color: inherit;
-  text-decoration: none;
+.work__cat{
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-radius: 4px;
 }
 
-.header-wrapper li:before{
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 1px;
-  left: 0;
-  visibility: hidden;
-  -webkit-transform: translate3d(0,0,0) scaleX(0);
-  transform: translate3d(0,0,0) scaleX(0);
-  transition: all .2s ease 0s;
-  background-color: rgb(119, 158, 203);
+.contact-button{
+	text-decoration: none;
+	color: #fff;
+	background-color: var(--def-color);
+	font-weight: 600;
+	font-family: "Montserrat";
+	padding: 12px 35px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	border: none;
+	cursor: pointer;
 }
 
-.header-wrapper li:hover{
-  cursor: pointer;
+.contact-button::before{
+	position: absolute;
+	content: "";
+	top: 0px;
+	height: 100%;
+	left: -25%;
+	width: 0%;
+	background-color: #041230;
+	transform: skew(50deg);
+	transition-duration: .6s;
+	z-index: 1;
 }
 
-.header-wrapper li:hover::before{
-  visibility: visible;
-  -webkit-transform: translate3d(0,0,0) scaleX(1);
-  transform: translate3d(0,0,0) scaleX(1);
+.contact-button:hover::before{
+	width: 180%;
 }
 
-.FirstScreen-wrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+.contact-button span{
+	position: relative;
+	z-index: 2;
 }
 
-.FirstScreen-text-wrapper{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  pointer-events: none;
+.arlo_tm_universal_box_wrap.particle{
+	background-image: url('/assets/img/bgimg.jpg');
 }
 
-.FirstScreen-text{
-  font-size: 4rem;
-  color: white;
-  font-weight: bold;
+.entry:hover .project_title:not(:hover){
+	opacity: 1;
+	visibility: visible;
 }
 
-.FirstScreen-text2{
-  color: white;
-  font-size: 1.5rem;
-  font-style: italic;
+.project_title {
+	white-space: nowrap;
+	background: rgba(241, 241, 241, 0.664);
+	font-size: 20px;
+	font-weight: 700;
+	padding: 5px 15px;
+	color: rgba(0,0,0,0.8);
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	transition: ease-in .1s;
 }
 
-.projects-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.project_title:hover{
+	opacity: 1;
+	visibility: visible;
 }
 
-.projects-filter{
-  display: flex;
-  justify-content: center;
-  margin: 50px 0;
+@media only screen and (max-width: 1500px) {
+	.arlo_tm_portfolio_list > li{
+		width: 45.6666%;
+	}
 }
 
-.projects-filter li{
-  list-style-type: none;
-  border: none;
-  display: inline-flex;
-  justify-content: center;
-  outline: none;
-  position: relative;
-  z-index: 0;
-  letter-spacing: .25px;
-  background: none;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: rgb(119, 158, 203);
-  cursor: pointer;
-  font-weight: 500;
-  height: 36px;
-  min-width: 80px;
-  outline: none;
-  padding: 0 16px;
-  -webkit-align-items: center;
-  align-items: center;
-  display: flex;
-  margin: 0 8px;
-  padding: 8px 16px;
+/* COLOR DEFINITIONS */
+
+.arlo_tm_totop{
+	background-color: var(--def-color);
 }
 
-.projects-filter li:focus::before{
-  opacity: .12 !important;
-  transform: scale(1) !important;
-  opacity: .12;
+.arlo_tm_portfolio_filter li a.current{
+	color: var(--def-color);
 }
 
-.clicked::before{
-  opacity: .12 !important;
-  transform: scale(1) !important;
-  opacity: .12;
+.arlo_tm_leftpart_wrap .arlo_tm_resize{
+	background-color: var(--def-color);
 }
 
-
-.projects-filter li:hover::before{
-  opacity: .06;
-  transform: scale(1);
-  opacity: .06;
+.arlo_tm_title_holder::before{
+	background-color: var(--def-color);
 }
 
-.projects-filter li::before{
-  content: '';
-  display: block;
-  opacity: 0;
-  position: absolute;
-  transition-duration: .15s;
-  transition-timing-function: cubic-bezier(0.4,0.0,0.2,1);
-  z-index: -1;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: #202124;
-  border-radius: 4px;
-  transform: scale(0);
-  transition-property: transform,opacity;
+.arlo_tm_services_wrap .list_wrap ul li .icon .svg{
+	color: var(--def-color);
 }
 
-.project-card{
-  max-width: 700px;
-  height: fit-content;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 26px 26px;
-  border: 1px solid #dadce0;
-  transition: all .2s;
+.arlo_tm_about_wrap .buttons_wrap ul li a{
+	background-color: var(--def-color);
 }
 
-.project-card:hover{
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transform: scale3d(1.05, 1.05, 1.05);
+.arlo_tm_about_wrap .definition p strong{
+	color: var(--def-color);
 }
 
-.project-overlay{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(0,0,0,.4);
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all .2s;
+.arlo_tm_hero_header_wrap .name_holder h3 span{
+	color: var(--def-color);
 }
 
-.project-overlay:hover{
-  opacity: 1;
-  cursor: pointer;
+.arlo_tm_contact_wrap .arlo_tm_button a{
+	background-color: var(--def-color);
 }
 
-.project-img-wrapper{
-  background-color: rgba(119, 158, 203,.1);
-  height: 250px;
-  display: flex;
-  align-items: center;
+.arlo_tm_about_wrap .about_short_contact_wrap ul li a:hover{
+	color: var(--def-color);
 }
 
-.project-card img{
-  width: 700px;
-  height: 350px;
-  object-fit: cover;
+.arlo_tm_leftpart_wrap .menu_list_wrap ul li a:hover{
+	color: var(--def-color);
 }
 
-.project-name{
-  z-index: 2;
-  color: white;
-  font-size: 2rem;
-  font-family: 'Poiret One', sans-serif;
-  font-weight: bold;
+.arlo_tm_leftpart_wrap .menu_list_wrap ul li a::before{
+	background-color: var(--def-color);
 }
 
-.project-framework{
-  color: white;
-  font-size: 1.3rem;
+.arlo_tm_leftpart_wrap .leftpart_bottom .social_wrap ul li a:hover{
+	color: var(--def-color);
 }
 
-.ReactJS{
-  color: #61dafb;
-}
-
-.Native{
-  color: #05a5d1;
-}
-
-/* FOOTER */
-.footer-wrapper{
-  display: flex;
-  align-items: center;
-  box-shadow: inset 0px 1px 0 rgba(100,121,143,0.122);
-  height: 80px;
-  margin-top: 50px;
-}
-
-.footer{
-  display: flex;
-  justify-content: space-between;
-  margin: 0 5vw;
-  width: 100%;
-}
-
-.footer-social img{
-  height: 24px;
-  margin: 6px;
-  padding: 6px;
+.arlo_tm_bar{
+	background-color: var(--def-color) !important;
 }
