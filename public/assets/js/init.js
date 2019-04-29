@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
   //arlo_tm_contact_form();
   arlo_tm_owl_carousel();
   arlo_tm_animate_text();
-  arlo_tm_projects();
+  //arlo_tm_projects();
   arlo_tm_miniboxes();
   arlo_tm_isotope();
   arlo_tm_totop();
