@@ -20,14 +20,14 @@ export default class Contact extends Component{
 				<div className='container'>
 					<div className='contact-form-wrapper'>
 						<form className='contact-form'>
-							<label>Name</label>
-							<input type='text' placeholder='Enter your name'/>
+							<label for='form_name'>Name</label>
+							<input id='form_name' type='text' placeholder='Enter your name'/>
 
-							<label>Email Address</label>
-							<input type='email' placeholder='Enter your email address'/>
+							<label for='form_email'>Email Address</label>
+							<input id='form_email' type='email' placeholder='Enter your email address'/>
 
-							<label>Message</label>
-							<textarea placeholder='Enter your message'></textarea>
+							<label for='form_message'>Message</label>
+							<textarea id='form_message' placeholder='Enter your message'></textarea>
 							<br/>
 							<button type="submit" className='home-start-button'>Submit</button>
 						</form>

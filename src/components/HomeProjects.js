@@ -61,12 +61,13 @@ export default class HomeProjects extends Component{
 										return(
 											<li key={index} className={project.category}>
 												<div className="entry arlo_tm_portfolio_animation_wrap" data-title={project.friendlyName} data-category={project.category}>
-													<Link to='/'>
-														<img src={project.img}/>
-														<div className="arlo_tm_portfolio_image_main project_title" data-img-url={project.img}>
-															<span>{project.friendlyName}</span>
+													<img src={project.img} alt={project.friendlyName}/>
+													<div className='project-card-overlay'>
+														<div className='project-card-title-wrap'>
+															<h4>{project.friendlyName}</h4>
+															<h6 style={{paddingTop: 4, color: '#454545'}}>{project.category}</h6>
 														</div>
-													</Link>
+													</div>
 												</div>
 											</li>
 										)

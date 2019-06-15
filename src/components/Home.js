@@ -31,7 +31,7 @@ class Home extends Component {
 			body: data,
 		})
 		.then(result => {
-			console.log(result.data);
+			//console.log(result.data);
 			this.setState({
 				didSubmit: true
 			})
@@ -58,7 +58,7 @@ class Home extends Component {
 					<div ref='mobile_menu_wrap' className="arlo_tm_mobile_header_wrap">
 						<div className="main_wrap">
 							<div className="logo">
-								<img src="/assets/img/logo/mobile_logo.png"/>
+								<img style={{width: 160}} src="/assets/img/logo.svg" alt='Alen Budimir Logo'/>
 							</div>
 							<div className="arlo_tm_trigger">
 								<div ref='hamburger' className="hamburger hamburger--collapse-r">
@@ -89,7 +89,7 @@ class Home extends Component {
 						<div className="arlo_tm_leftpart_wrap">
 							<div className="leftpart_inner">
 								<div className="logo_wrap">
-									<a href="#"><img src="/assets/img/logo.svg"/></a>
+									<a href="#"><img src="/assets/img/logo.svg" alt='Alen Budimir Logo'/></a>
 								</div>
 								<div className="menu_list_wrap">
 									<ul className="anchor_nav">
@@ -103,14 +103,14 @@ class Home extends Component {
 								<div className="leftpart_bottom">
 									<div className="social_wrap">
 										<ul>
-											<li><a href="https://www.facebook.com/alenbudimir20"><i className="xcon-facebook" /></a></li>
-											<li><a href="https://www.linkedin.com/in/alen-budimir/"><i className="xcon-linkedin" /></a></li>
-											<li><a href="https://www.instagram.com/alenbudimir/"><i className="xcon-instagram" /></a></li>
-											<li><a href="https://github.com/budi1200"><img className='github_image' src='/assets/img/social/github_icon.png' height={15} width={15}/></a></li>
+											<li><a href="https://www.facebook.com/alenbudimir20" aria-label="Facebook"><i className="xcon-facebook" /></a></li>
+											<li><a href="https://www.linkedin.com/in/alen-budimir/" aria-label="LinkedIn"><i className="xcon-linkedin" /></a></li>
+											<li><a href="https://www.instagram.com/alenbudimir/" aria-label="Instagram"><i className="xcon-instagram" /></a></li>
+											<li><a href="https://github.com/budi1200" aria-label="Github"><img className='github_image' src='/assets/img/social/github_icon.png' height={15} width={15} alt='Github link'/></a></li>
 										</ul>
 									</div>
 								</div>
-								<a className="arlo_tm_resize" href="#"><i className="xcon-angle-left" /></a>
+								<a className="arlo_tm_resize" href="#" aria-label="Hide sidebar"><i className="xcon-angle-left" /></a>
 							</div>
 						</div>
 						{/* /LEFTPART */}
@@ -124,7 +124,7 @@ class Home extends Component {
 											<div className="particle_overlay" />
 											<div id='header_section' className="inner_content">
 												<div className="image_wrap">
-													<img src="/assets/img/newprofileimg.png"/>
+													<img src="/assets/img/newprofileimg.png" alt='Profile image'/>
 												</div>
 												<div className="name_holder">
 													<h3>Alen <span>Budimir</span></h3>
@@ -134,7 +134,7 @@ class Home extends Component {
 												</div>
 											</div>
 											<div className="arlo_tm_arrow_wrap bounce anchor">
-												<a href="#about"><i className="xcon-angle-double-down" /></a>
+												<a href="#about"><i className="xcon-angle-double-down" aria-label="Move down"/></a>
 											</div>
 										</div>
 									</div>
@@ -153,11 +153,11 @@ class Home extends Component {
 													<div className="leftbox">
 														<div className="about_image_wrap parallax" data-relative-input="true">
 															<div className="image layer" data-depth="0.1">
-																<img src="/assets/img/newprofileimg.png"/>
+																<img src="/assets/img/newprofileimg.png" alt='Profile image'/>
 																<div className="inner" data-img-url="/assets/img/newprofileimg.png" />
 															</div>
 															<div className="border layer" data-depth="0.2">
-																<img src="/assets/img/newprofileimg.png"/>
+																<img src="/assets/img/newprofileimg.png" alt='Profile image'/>
 																<div className="inner" />
 															</div>
 														</div>
@@ -272,7 +272,7 @@ class Home extends Component {
 													<li>
 														<div className="inner">
 															<div className="icon">
-																<img className="svg" src="/assets/img/svg/camera-diaphragm.svg"/>
+																<img className="svg" src="/assets/img/svg/camera-diaphragm.svg" alt='Frontend icon'/>
 															</div>
 															<div className="title_service">
 																<h3>Frontend Development</h3>
@@ -282,16 +282,31 @@ class Home extends Component {
 															</div>
 														</div>
 													</li>
+													
 													<li>
 														<div className="inner">
 															<div className="icon">
-																<img className="svg" src="/assets/img/svg/new-tab.svg"/>
+																<img className="svg" src="/assets/img/svg/new-tab.svg" alt='Backend icon'/>
 															</div>
 															<div className="title_service">
 																<h3>Backend Development</h3>
 															</div>
 															<div className="text">
 																<p>Web design is a similar process of creation, with the intention of presenting the content on electronic pages ...</p>
+															</div>
+														</div>
+													</li>													
+													
+													<li>
+														<div className="inner">
+															<div className="icon">
+																<img className="svg" src="/assets/img/svg/smartphone.svg" alt='Mobile icon'/>
+															</div>
+															<div className="title_service">
+																<h3>Mobile App Development</h3>
+															</div>
+															<div className="text">
+																<p>Mobile app development is the act or process by which a mobile app is developed for mobile devices...</p>
 															</div>
 														</div>
 													</li>
@@ -311,26 +326,20 @@ class Home extends Component {
 											<ul className="arlo_tm_counter_list arlo_tm_miniboxes">
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={30} data-speed={3000}>0</span></span></h3>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={30} data-speed={3000}>0</span>+</span></h3>
 														<span>Projects Completed</span>
 													</div>
 												</li>
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={10} data-speed={3000}>0</span>K</span></h3>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={10} data-speed={3000}>0</span>K+</span></h3>
 														<span>Lines of Code</span>
 													</div>
 												</li>
 												<li>
 													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={20} data-speed={3000}>0</span></span></h3>
+														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={20} data-speed={3000}>0</span>+</span></h3>
 														<span>Happy Clients</span>
-													</div>
-												</li>
-												<li>
-													<div className="inner arlo_tm_minibox">
-														<h3><span><span className="arlo_tm_counter" data-from={0} data-to={8000} data-speed={3000}>0</span>+</span></h3>
-														<span>Random number</span>
 													</div>
 												</li>
 											</ul>
@@ -369,10 +378,10 @@ class Home extends Component {
 																		<div className="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
 																		<div className="empty_notice"><span>Please Fill Required Fields</span></div>
 																		<div className="wrap">
-																			<input ref='email' id="email" type="email" placeholder="Your Email" name='_replyto' />
+																			<input ref='email' id="email" type="email" placeholder="Your Email" name='_replyto' aria-label="Email"/>
 																		</div>
 																		<div className="wrap">
-																			<textarea ref='message' id="message" placeholder="Your Message" defaultValue={""} name='name' />
+																			<textarea ref='message' id="message" placeholder="Your Message" defaultValue={""} name='name' aria-label="Message"/>
 																		</div>
 																		<div className="arlo_tm_button">
 																			<button className='contact-button' id="send_message"><span>Send Message</span></button>
