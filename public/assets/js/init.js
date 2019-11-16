@@ -13,8 +13,8 @@ jQuery(document).ready(function() {
   arlo_tm_imgtosvg();
   arlo_tm_magnific_popup();
   arlo_tm_jarallax();
-  arlo_tm_list_height();
-  arlo_tm_portfolio();
+  //arlo_tm_list_height();
+  //arlo_tm_portfolio();
   arlo_tm_anchor();
   //arlo_tm_contact_form();
   arlo_tm_owl_carousel();
