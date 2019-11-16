@@ -184,7 +184,7 @@ class Home extends Component {
 																	<span><label>Interests:</label> Tv series</span>
 																</li>
 																<li>
-																	<span><label>Study:</label> ERŠ Velenje</span>
+																	<span><label>Study:</label> Fakulteta za elektrotehniko, računalništvo in informatiko Maribor</span>
 																</li>
 																<li>
 																	<span><label>Degree:</label> Soon</span>
